@@ -11,20 +11,24 @@ const App = () => {
   //fetching data
 const fetchlink="http://localhost:8000"
 
-  const [cities,setCities]=useState({});
+  const [cities,setCities]=useState([]);
   const [isLoading,setIsloading]=useState(false)
 
 useEffect(function(){
   async function fetchcities()
   {
     try{
+      setIsloading(true)
          const res=await fetch(`${fetchlink}/cities`)
          const data=await res.json();
-         console.log(data);
+         setCities(data);
         }
     catch(err)
     {
       console.log(err.message);
+    }
+    finally{
+      setIsloading(false)
     }
   }
   fetchcities()
@@ -40,8 +44,8 @@ useEffect(function(){
    <Route  path="pricing" element={<Pricing/>} />
    <Route  path="login" element={<Login />} />
    <Route  path="app" element={<AppLayout />}>
-     <Route index element={<CityList />} /> 
-     <Route path="cities" element={<CityList />} />
+     <Route index element={<CityList  cities={cities} isLoading={isLoading} />} /> 
+     <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
      <Route path="countries" element={<div>Countries</div>} />
      <Route path="form" element={<div>form</div>} />
    </Route> 
