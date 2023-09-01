@@ -4,8 +4,8 @@ const Appnav = () => {
         <>
         <nav className={styles.nav}>
  
-        app navigation xD
-        <p>Hello world</p>
+        app navigatio
+        
         </nav>
        
         
