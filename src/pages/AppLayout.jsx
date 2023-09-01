@@ -1,15 +1,12 @@
 import Appnav from "../components/Appnav";
-import Pagenav from "../components/Pagenav";
+
+import SideBar from "../components/SideBar";
+import styles from './AppLayout.module.css'
 const AppLayout = () => {
     return (
-        <div>
-            <Pagenav />
-            <Appnav />
-            <div>
-
-        app layout
-            </div>
-        </div>
+        <div  className={styles.app}>
+            <SideBar />
+       </div>
       );
 }
  
