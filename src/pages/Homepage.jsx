@@ -7,7 +7,7 @@ const Homepage = () => {
         <div>homepage</div>
         {/* <a href="/pricing">pricing</a>
          */}
-         <Link to="./pricing">pricingg</Link>
+         <Link to="./app">Go to app</Link>
         </> );
 }
  
