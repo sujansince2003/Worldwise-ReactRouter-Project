@@ -1,5 +1,6 @@
 import Pagenav from "../components/Pagenav";
 import styles from "./Login.module.css";
+import { Link } from "react-router-dom";
 import { useState} from "react";
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
@@ -31,7 +32,8 @@ export default function Login() {
         </div>
 
         <div>
-          <button>Login</button>
+          <Link to="/app" className="cta">Login</Link>
+         
         </div>
       </form>
     </main>
