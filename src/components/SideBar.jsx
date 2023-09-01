@@ -9,7 +9,7 @@ const SideBar = () => {
 
           <Logo />
           <Appnav />
-           <Outlet />
+          <Outlet />  
 
         </div>
     );
