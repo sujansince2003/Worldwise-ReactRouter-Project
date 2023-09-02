@@ -18,6 +18,11 @@
 .buttons {
   display: flex;
   justify-content: space-between;
+  
+}
+.btn 
+{
+  padding: 5px 50px;
 }
 
 .flag {

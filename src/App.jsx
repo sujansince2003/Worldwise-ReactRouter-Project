@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import CityList from "./components/CityList";
 import CountriesList from "./components/CountriesList"
 import City from "./components/City";
+import Form from "./components/Form"
 import { useEffect, useState } from "react";
 const App = () => {
 
@@ -50,7 +51,7 @@ useEffect(function(){
      <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
      <Route path="cities/:id" element ={<City />} />
      <Route path="countries" element={<CountriesList cities={cities} isLoading={isLoading} />} />
-     <Route path="form" element={<div>form</div>} />
+     <Route path="form" element={<Form />} />
    </Route> 
    <Route path="*" element={<div>Error</div>} />
 
