@@ -53,5 +53,5 @@ function useCities()
 }
 
 
-export {CitiesProvider}
+export {CitiesProvider,useCities}
 
