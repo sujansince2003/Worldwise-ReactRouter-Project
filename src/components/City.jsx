@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../Contexts/CitiesContext";
 import Spinner from "./spinner";
+import Backbtn from "./Backbtn";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -68,7 +69,9 @@ return object so we destruct it
               </a>
             </div>
 
-            <div>{/* <ButtonBack /> */}</div>
+            <div>
+              <Backbtn />
+            </div>
           </div>
         </>
       )}
