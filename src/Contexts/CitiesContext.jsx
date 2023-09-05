@@ -8,6 +8,7 @@ const citiesContext = createContext();
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsloading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
     async function fetchcities() {
@@ -25,11 +26,26 @@ function CitiesProvider({ children }) {
     fetchcities();
   }, []);
 
+  async function GetCity(id) {
+    try {
+      setIsloading(true);
+      const res = await fetch(`${fetchlink}/cities/${id}`);
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setIsloading(false);
+    }
+  }
+
   return (
     <citiesContext.Provider
       value={{
         cities,
         isLoading,
+        currentCity,
+        GetCity,
       }}
     >
       {children}
@@ -39,11 +55,11 @@ function CitiesProvider({ children }) {
 
 //creating custom hook to consume context
 
-export const useCities = () => {
+const useCities = () => {
   const context = useContext(citiesContext);
   if (context === undefined)
     throw new Error(" context is used outside the cityProvider function");
   return context;
 };
-
-export { CitiesProvider };
+// eslint-disable-next-line react-refresh/only-export-components
+export { CitiesProvider, useCities };
