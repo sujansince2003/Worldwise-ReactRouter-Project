@@ -1,7 +1,7 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../Contexts/CitiesContext";
-import { useEffect } from "react";
 import Spinner from "./spinner";
 
 const formatDate = (date) =>
