@@ -16,7 +16,7 @@
 }
 
 .cityItem--active {
-  border: 2px solid var(--color-brand--2);
+  border: 2px solid blue;
   border-left: 5px solid var(--color-brand--2);
 }
 

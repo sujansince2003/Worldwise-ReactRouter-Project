@@ -18,7 +18,7 @@ const CityItem = ({ city }) => {
     <li>
       <Link
         className={`${styles.cityItem}  ${
-          id === currentCity.id ? styles["CityItem--active"] : ""
+          id === currentCity.id ? styles["cityItem--active"] : ""
         }`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
