@@ -32,7 +32,7 @@ const Map = () => {
   // const [searchParam] = useSearchParams();
   // const maplat = searchParam.get("lat");
   // const maplng = searchParam.get("lng");
-  const { lat: maplat, lng: maplng } = useUrlpos();
+  const [maplat, maplng] = useUrlpos();
 
   useEffect(
     function () {
