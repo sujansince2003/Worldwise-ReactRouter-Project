@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from "./Map.module.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {
@@ -14,14 +15,15 @@ import { useGeolocation } from "../Hooks/useGeolocation";
 import Button from "./Button";
 
 const Map = () => {
-  const [searchParam, setSearchParam] = useSearchParams();
+  // const [searchParam, setSearchParam] = useSearchParams();
+  const [searchParam] = useSearchParams(); //if i dont need to change state i can eradicate set....
 
   const {
     isLoading: isloadingposition,
     position: geoposition,
     getPosition,
   } = useGeolocation();
-  console.log(geoposition);
+  // console.log(geoposition);
 
   const [mapPosition, setmapPosition] = useState([40, 0]);
   const { cities } = useCities();
