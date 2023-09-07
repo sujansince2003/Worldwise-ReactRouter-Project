@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import styles from "./Form.module.css";
 import { useState } from "react";
@@ -16,7 +17,7 @@ export function convertToEmoji(countryCode) {
 
 function Form() {
   const [cityName, setCityName] = useState("");
-  const [country, setCountry] = useState("");
+  // const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
 
