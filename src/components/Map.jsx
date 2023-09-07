@@ -1,6 +1,13 @@
 import styles from "./Map.module.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../Contexts/CitiesContext";
 const Map = () => {
@@ -10,9 +17,6 @@ const Map = () => {
   const { cities } = useCities();
   const maplat = searchParam.get("lat");
   const maplng = searchParam.get("lng");
-
-  const navigate = useNavigate();
-  //   onClick={() => navigate("form")}
 
   useEffect(
     function () {
@@ -49,6 +53,7 @@ const Map = () => {
         ))}
         {/* <ChangeCenter position={[maplat || 10, maplng || 3]} /> */}
         <ChangeCenter position={mapPosition} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
@@ -57,6 +62,14 @@ function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
   return null; //this is component so it should return jsx so we are returning null instead of jsx
+}
+
+function DetectClick() {
+  const navigate = useNavigate();
+
+  useMapEvents({
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
 }
 
 export default Map;
