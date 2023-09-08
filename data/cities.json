@@ -13,42 +13,6 @@
       "id": 73930385
     },
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
-    },
-    {
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:01:56.229Z",
-      "notes": "y4",
-      "position": {
-        "lat": "40.01906984430202",
-        "lng": "-0.025062561035156253"
-      },
-      "id": 98443198
-    },
-    {
       "cityName": "Castello de la Plana",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -107,78 +71,6 @@
         "lng": "-0.015449523925781252"
       },
       "id": 98443203
-    },
-    {
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:39:42.437Z",
-      "notes": "",
-      "position": {
-        "lat": "39.99868995767895",
-        "lng": "-0.04171371459960938"
-      },
-      "id": 98443204
-    },
-    {
-      "cityName": "Puebla Tornesa",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:51:19.703Z",
-      "notes": "",
-      "position": {
-        "lat": "40.10157897696855",
-        "lng": "-0.03433227539062501"
-      },
-      "id": 98443205
-    },
-    {
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:51:27.940Z",
-      "notes": "",
-      "position": {
-        "lat": "40.012496352140964",
-        "lng": "-0.006523132324218751"
-      },
-      "id": 98443206
-    },
-    {
-      "cityName": "Benicassim",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:51:49.325Z",
-      "notes": "",
-      "position": {
-        "lat": "40.06664303863393",
-        "lng": "0.01733779907226563"
-      },
-      "id": 98443207
-    },
-    {
-      "cityName": "Cabanes",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:52:02.478Z",
-      "notes": "",
-      "position": {
-        "lat": "40.08726529057087",
-        "lng": "0.10660171508789064"
-      },
-      "id": 98443208
-    },
-    {
-      "cityName": "Vilafames",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-08T01:53:23.264Z",
-      "notes": "",
-      "position": {
-        "lat": "40.09002320740406",
-        "lng": "-0.06282806396484376"
-      },
-      "id": 98443209
     }
   ]
 }
