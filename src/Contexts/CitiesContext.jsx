@@ -1,12 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const fetchlink = "http://localhost:8000";
 
@@ -14,19 +8,43 @@ const initialstate = {
   cities: [],
   isLoading: false,
   currentCity: {},
+  error: "",
 };
 
 function render(state, action) {
   switch (action.type) {
+    case "loading": {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
     case "cities/loaded":
-      return { ...state };
+      return { ...state, isLoading: false, cities: action.payload };
 
+    case "city/loaded":
+      return { ...state, isLoading: false, currentCity: action.payload };
+    case "city/created":
+      return {
+        ...state,
+        isLoading: false,
+        cities: [...state.cities, action.payload],
+      };
+    case "city/deleted":
+      return {
+        ...state,
+        isLoading: false,
+        cities: state.cities.filter((city) => city.id !== action.payload),
+      };
+    case "rejected":
+      return { ...state, isLoading: false, error: action.payload };
     default:
       console.log("default state");
   }
 }
 
 const citiesContext = createContext();
+
 function CitiesProvider({ children }) {
   const [state, dispatch] = useReducer(render, initialstate);
   const { cities, isLoading, currentCity } = state;
@@ -36,35 +54,35 @@ function CitiesProvider({ children }) {
 
   useEffect(function () {
     async function fetchcities() {
+      dispatch({ type: "loading" });
       try {
-        setIsloading(true);
+        // setIsloading(true);
         const res = await fetch(`${fetchlink}/cities`);
         const data = await res.json();
-        setCities(data);
+        dispatch({ type: "cities/loaded", payload: data });
       } catch (err) {
-        console.log(err.message);
-      } finally {
-        setIsloading(false);
+        dispatch({ type: "rejected", payload: err.message });
       }
     }
     fetchcities();
   }, []);
 
   async function GetCity(id) {
+    dispatch({ type: "loading" });
     try {
-      setIsloading(true);
+      // setIsloading(true);
       const res = await fetch(`${fetchlink}/cities/${id}`);
       const data = await res.json();
-      setCurrentCity(data);
+      // setCurrentCity(data);
+      dispatch({ type: "city/loaded", payload: data });
     } catch (err) {
-      console.log(err.message);
-    } finally {
-      setIsloading(false);
+      dispatch({ type: "rejected", payload: err.message });
     }
   }
   async function CreateCity(newCity) {
+    dispatch({ type: "loading" });
     try {
-      setIsloading(true);
+      // setIsloading(true);
       const res = await fetch(`${fetchlink}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -74,26 +92,28 @@ function CitiesProvider({ children }) {
       });
       const data = await res.json();
 
-      setCities((cities) => [...cities, data]);
+      // setCities((cities) => [...cities, data]);
+      dispatch({
+        type: "city/created",
+        payload: data,
+      });
     } catch (err) {
-      console.log(err.message);
-    } finally {
-      setIsloading(false);
+      dispatch({ type: "rejected", payload: err.message });
     }
   }
 
-  async function deleteCity(id) {
+  async function deleteCity() {
+    dispatch({ type: "loading" });
     try {
-      setIsloading(true);
+      // setIsloading(true);
       await fetch(`${fetchlink}/cities/${id}`, {
         method: "DELETE",
       });
 
-      setCities(cities.filter((city) => city.id !== id));
+      // setCities(cities.filter((city) => city.id !== id));
+      dispatch({ type: "city/deleted", payload: id });
     } catch (err) {
-      console.log(err.message);
-    } finally {
-      setIsloading(false);
+      dispatch({ type: "rejected", payload: err.message });
     }
   }
 
@@ -121,5 +141,5 @@ const useCities = () => {
     throw new Error(" context is used outside the cityProvider function");
   return context;
 };
-// eslint-disable-next-line react-refresh/only-export-components
+
 export { CitiesProvider, useCities };
