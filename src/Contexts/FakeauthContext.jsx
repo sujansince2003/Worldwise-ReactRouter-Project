@@ -6,7 +6,7 @@ const initialstate = {
   isAuthenticated: false,
 };
 
-function render(state, action) {
+function reducer(state, action) {
   switch (action.type) {
     case "login":
       return { ...state, user: action.payload, isAuthenticated: true };
@@ -17,8 +17,8 @@ function render(state, action) {
   }
 }
 const FAKE_USER = {
-  name: "Jack",
-  email: "jack@example.com",
+  name: "sujan",
+  email: "sujan@example.com",
   password: "qwerty",
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
