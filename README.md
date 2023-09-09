@@ -8,7 +8,7 @@ Created a Project using
 
 ✶styling with CSS Modules
 
-DEMO:
+DEMO: https://www.linkedin.com/posts/sujansince2003_100daysofcode-activity-7106323210744307712-0kvD?utm_source=share&utm_medium=member_desktop
 (not deployed yet as i have use local JSON-Server.Will deploy it after learning some backend)
 
 Buidling this Project i Learned about::
