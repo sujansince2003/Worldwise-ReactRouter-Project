@@ -105,7 +105,7 @@ function CitiesProvider({ children }) {
     }
   }
 
-  async function deleteCity() {
+  async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
       // setIsloading(true);
